@@ -9,11 +9,21 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.sadho.denisson.fiscalizarmanaus.ActMain"
+    tools:context=".activities.ActMain"
     tools:showIn="@layout/act_main">
 
     <TextView
+        android:id="@+id/tv_001"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Principal" />
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/tv_001"
+        android:id="@+id/ib_bus_stop"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_directions_bus_black_48dp"/>
+
 </RelativeLayout>

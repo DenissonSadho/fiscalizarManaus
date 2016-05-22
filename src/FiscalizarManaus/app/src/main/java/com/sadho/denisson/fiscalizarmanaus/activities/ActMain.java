@@ -1,6 +1,8 @@
-package com.sadho.denisson.fiscalizarmanaus;
+package com.sadho.denisson.fiscalizarmanaus.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +11,16 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class ActMain extends AppCompatActivity {
+import com.sadho.denisson.fiscalizarmanaus.R;
+import com.sadho.denisson.fiscalizarmanaus.controller.ControllerActMain;
+import com.sadho.denisson.fiscalizarmanaus.holder.HolderActMain;
+import com.sadho.denisson.fiscalizarmanaus.util.Constantes;
+import com.sadho.denisson.fiscalizarmanaus.util.TipoOcorrencia;
+
+public class ActMain extends AppCompatActivity implements IViewMainAct {
+
+    private HolderActMain mHolder;
+    private ControllerActMain mController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +28,10 @@ public class ActMain extends AppCompatActivity {
         setContentView(R.layout.act_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Fiscalizar Manaus");
+
+        initialize();
+        initializeActions();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -26,6 +41,29 @@ public class ActMain extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    private void initialize() {
+        mHolder = new HolderActMain(this);
+        mController = new ControllerActMain(this);
+    }
+
+    private void initializeActions() {
+        if (mHolder != null) {
+            mHolder.getIBBusStop().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(final View v) {
+                    iniciarAdicionarOcorrencia(TipoOcorrencia.PONTO_ONIBUS);
+                }
+            });
+        }
+    }
+
+    @Override
+    public void iniciarAdicionarOcorrencia(final TipoOcorrencia tipoOcorrencia) {
+        final Intent itDetail = new Intent(this, ActNovaOcorrencia.class);
+        itDetail.putExtra(Constantes.TIPO, tipoOcorrencia);
+        this.startActivity(itDetail);
     }
 
     @Override
@@ -43,7 +81,7 @@ public class ActMain extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_update) {
             return true;
         }
 

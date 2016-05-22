@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Fiscalizar Manaus</string>
     <string name="action_settings">Settings</string>
+    <string name="action_update">Atualizar</string>
+    <string name="title_activity_act_nova_ocorrencia">Nova Ocorrência</string>
+    <string name="ponto_onibus">Ponto de Onibus</string>
+    <string name="endereco_referencia">Endereço ou Referencia</string>
+    <string name="desc_endereco_referencia">Descreva o Endereço ou Referencia</string>
+    <string name="desc_situacao">Descreva a Situação do Ambiente</string>
+    <string name="situacao">Situação do Ambiente</string>
+    <string name="lbl_salvar">Salvar</string>
+    <string name="lbl_proximo">Proximo</string>
+    <string name="lbl_voltar">Voltar</string>
+    <string name="lbl_referencia">Referencia</string>
+    <string name="lbl_descricao">Descricao</string>
+
 </resources>
