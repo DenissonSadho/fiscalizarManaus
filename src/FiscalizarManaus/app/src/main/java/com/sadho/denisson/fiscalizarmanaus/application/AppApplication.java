@@ -5,9 +5,6 @@ import android.content.Context;
 
 import com.orm.SugarContext;
 
-/**
- * Created by Herber on 22/05/2016.
- */
 public class AppApplication extends Application {
 
     private static Context sContext;

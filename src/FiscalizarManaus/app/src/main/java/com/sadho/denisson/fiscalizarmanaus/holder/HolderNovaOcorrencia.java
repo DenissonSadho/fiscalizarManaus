@@ -6,6 +6,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.sadho.denisson.fiscalizarmanaus.R;
 import com.sadho.denisson.fiscalizarmanaus.activities.IViewNovaOcorrencia;
@@ -24,6 +25,9 @@ public class HolderNovaOcorrencia {
     private Button btnSalvar;
     private RelativeLayout rlInfoBasica;
     private RelativeLayout rlDadosGps;
+    private TextView tvLblOpcao;
+    private TextView tvEndereco;
+    private TextView tvDescricao;
 
     private IViewNovaOcorrencia mView;
 
@@ -40,6 +44,9 @@ public class HolderNovaOcorrencia {
         btnProximo = (Button) mView.findViewById(R.id.btn_next);
         btnVoltar = (Button) mView.findViewById(R.id.btn_back);
         btnSalvar = (Button) mView.findViewById(R.id.btn_save);
+        tvLblOpcao = (TextView) mView.findViewById(R.id.tv_lbl_opcao);
+        tvEndereco = (TextView) mView.findViewById(R.id.tv_endereco_referencia);
+        tvDescricao = (TextView) mView.findViewById(R.id.tv_descricao);
 
         rlInfoBasica = (RelativeLayout) mView.findViewById(R.id.rl_basics_info);
         rlDadosGps = (RelativeLayout) mView.findViewById(R.id.rl_gps_info);
@@ -82,5 +89,17 @@ public class HolderNovaOcorrencia {
 
     public Button getBtnSalvar() {
         return btnSalvar;
+    }
+
+    public TextView getTvLblOpcao() {
+        return tvLblOpcao;
+    }
+
+    public TextView getTvEndereco() {
+        return tvEndereco;
+    }
+
+    public TextView getTvDescricao() {
+        return tvDescricao;
     }
 }

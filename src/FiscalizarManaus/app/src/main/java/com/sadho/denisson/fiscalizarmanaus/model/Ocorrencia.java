@@ -12,14 +12,19 @@ public class Ocorrencia extends SugarRecord implements Serializable, Parcelable 
 
     private String opcaoOcorrencia;
     private String enderecoReferencia;
+    private String descricao;
     private String urlImagem;
     private String latitude;
     private String longitude;
+
+    public Ocorrencia(){
+    }
 
     public Ocorrencia(final Parcel in) {
         setId(in.readLong());
         opcaoOcorrencia = in.readString();
         enderecoReferencia = in.readString();
+        descricao = in.readString();
         urlImagem = in.readString();
         latitude = in.readString();
         longitude = in.readString();
@@ -30,6 +35,7 @@ public class Ocorrencia extends SugarRecord implements Serializable, Parcelable 
         dest.writeLong(getId());
         dest.writeString(opcaoOcorrencia);
         dest.writeString(enderecoReferencia);
+        dest.writeString(descricao);
         dest.writeString(urlImagem);
         dest.writeString(latitude);
         dest.writeString(longitude);
@@ -90,5 +96,13 @@ public class Ocorrencia extends SugarRecord implements Serializable, Parcelable 
 
     public void setLongitude(String longitude) {
         this.longitude = longitude;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }
